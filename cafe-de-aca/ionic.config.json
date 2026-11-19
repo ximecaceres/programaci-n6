@@ -1,0 +1,7 @@
+{
+  "name": "cafe-de-aca",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
