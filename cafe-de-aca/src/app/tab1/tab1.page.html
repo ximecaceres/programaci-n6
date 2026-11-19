@@ -1,15 +1,95 @@
-<ion-header [translucent]="true">
+
+<ion-header>
   <ion-toolbar>
-    <ion-title> Tab 1 </ion-title>
+    <ion-title>Café de Acá</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="pagina-menu">
+
+    <section class="bienvenida">
+      <span class="subtitulo">UN LUGAR PARA DISFRUTAR</span>
+
+      <h1>Un buen momento<br>empieza con un café.</h1>
+
+      <p>
+        Sabores especiales, momentos únicos
+        y el placer de compartir.
+      </p>
+
+      <div class="decoracion-cafe">☕</div>
+    </section>
+
+    <section class="seccion-menu">
+
+      <div class="encabezado-seccion">
+        <div>
+          <span class="texto-pequeno">DESCUBRÍ</span>
+          <h2>Nuestro menú</h2>
+        </div>
+
+        <ion-badge>Hecho con cariño</ion-badge>
+      </div>
+
+      <p class="descripcion">
+        Encontrá algo rico para acompañar tu día.
+      </p>
+
+      <div class="categorias">
+
+        <ion-card class="categoria-card">
+          <div class="categoria-icono">☕</div>
+          <ion-card-content>
+            <ion-card-title>Cafetería</ion-card-title>
+            <p>Cafés y bebidas calientes</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="categoria-card">
+          <div class="categoria-icono">🥐</div>
+          <ion-card-content>
+            <ion-card-title>Desayunos</ion-card-title>
+            <p>Para empezar el día</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="categoria-card">
+          <div class="categoria-icono">🍰</div>
+          <ion-card-content>
+            <ion-card-title>Pastelería</ion-card-title>
+            <p>Algo dulce para disfrutar</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="categoria-card">
+          <div class="categoria-icono">🥤</div>
+          <ion-card-content>
+            <ion-card-title>Bebidas</ion-card-title>
+            <p>Opciones refrescantes</p>
+          </ion-card-content>
+        </ion-card>
+
+      </div>
+
+    </section>
+
+    <section class="destacado">
+
+      <span>UNA PAUSA ESPECIAL</span>
+
+      <h2>Tu momento favorito<br>está por comenzar.</h2>
+
+      <p>
+        Explorá nuestras opciones y elegí
+        algo rico para disfrutar.
+      </p>
+
+      <div class="destacado-icono">🤎</div>
+
+    </section>
+
+  </div>
+
 </ion-content>
