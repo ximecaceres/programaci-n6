@@ -1,0 +1,22 @@
+
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "Cafetería"
+    },
+    {
+      "id": 2,
+      "nombre": "Desayunos"
+    },
+    {
+      "id": 3,
+      "nombre": "Pastelería"
+    },
+    {
+      "id": 4,
+      "nombre": "Bebidas"
+    }
+  ],
+  "productos": []
+}

@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  urlDatos: '/assets/data/cafeteria.json'
 };
 
 /*
