@@ -8,7 +8,8 @@ import {
   IonCardTitle,
   IonCardContent,
   IonBadge,
-  IonSpinner
+  IonSpinner,
+  IonButton
 } from '@ionic/angular';
 
 import { CafeteriaService } from '../services/cafeteria.service';
@@ -26,13 +27,16 @@ import { CafeteriaService } from '../services/cafeteria.service';
     IonCardTitle,
     IonCardContent,
     IonBadge,
-    IonSpinner
+    IonSpinner,
+    IonButton
   ],
 })
 export class Tab1Page implements OnInit {
 
   categorias: any[] = [];
   productos: any[] = [];
+
+  categoriaSeleccionada = 0;
 
   cargando = true;
   error = '';
@@ -54,8 +58,8 @@ export class Tab1Page implements OnInit {
       next: (datos) => {
         this.categorias = datos.categorias;
         this.productos = datos.productos;
-        this.cargando = false;
 
+        this.cargando = false;
         this.cdr.detectChanges();
       },
       error: () => {
@@ -65,5 +69,23 @@ export class Tab1Page implements OnInit {
         this.cdr.detectChanges();
       }
     });
+  }
+
+  seleccionarCategoria(id: number) {
+    this.categoriaSeleccionada = id;
+  }
+
+  get productosFiltrados() {
+    if (this.categoriaSeleccionada === 0) {
+      return this.productos;
+    }
+
+    return this.productos.filter(
+      producto => producto.categoriaId === this.categoriaSeleccionada
+    );
+  }
+
+  formatearPrecio(precio: number): string {
+    return 'Gs. ' + new Intl.NumberFormat('es-PY').format(precio);
   }
 }

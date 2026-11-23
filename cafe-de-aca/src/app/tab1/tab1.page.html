@@ -37,32 +37,95 @@
       </p>
 
       @if (cargando) {
+
         <div class="estado-carga">
           <ion-spinner name="crescent"></ion-spinner>
           <p>Cargando menú...</p>
         </div>
+
       } @else if (error) {
+
         <div class="estado-error">
           <p>{{ error }}</p>
         </div>
+
       } @else {
-        <div class="categorias">
+
+        <div class="filtros-categorias">
+
+          <ion-button
+            [fill]="categoriaSeleccionada === 0 ? 'solid' : 'outline'"
+            (click)="seleccionarCategoria(0)">
+            Todas
+          </ion-button>
 
           @for (categoria of categorias; track categoria.id) {
-            <ion-card class="categoria-card">
-              <div class="categoria-icono">☕</div>
 
-              <ion-card-content>
-                <ion-card-title>
-                  {{ categoria.nombre }}
-                </ion-card-title>
+            <ion-button
+              [fill]="categoriaSeleccionada === categoria.id ? 'solid' : 'outline'"
+              (click)="seleccionarCategoria(categoria.id)">
+              {{ categoria.nombre }}
+            </ion-button>
 
-                <p>Explorá nuestras opciones</p>
-              </ion-card-content>
-            </ion-card>
           }
 
         </div>
+
+        <div class="encabezado-productos">
+          <h2>Productos del menú</h2>
+          <span>{{ productosFiltrados.length }} productos</span>
+        </div>
+
+        @if (productosFiltrados.length === 0) {
+
+          <div class="sin-productos">
+            <p>No hay productos en esta categoría.</p>
+          </div>
+
+        } @else {
+
+          <div class="productos">
+
+            @for (producto of productosFiltrados; track producto.id) {
+
+              <ion-card class="producto-card">
+
+                <ion-card-content>
+
+                  <ion-card-title>
+                    {{ producto.nombre }}
+                  </ion-card-title>
+
+                  @if (producto.descripcion) {
+                    <p class="producto-descripcion">
+                      {{ producto.descripcion }}
+                    </p>
+                  }
+
+                  <div class="producto-pie">
+
+                    <strong class="producto-precio">
+                      {{ formatearPrecio(producto.precio) }}
+                    </strong>
+
+                    @if (producto.destacado) {
+                      <ion-badge class="producto-destacado">
+                        Destacado
+                      </ion-badge>
+                    }
+
+                  </div>
+
+                </ion-card-content>
+
+              </ion-card>
+
+            }
+
+          </div>
+
+        }
+
       }
 
     </section>
